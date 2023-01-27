@@ -1,0 +1,304 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="824,2532" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="29">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="40">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap:VirtualizedContainerService.HintSize="544.8,2467.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="dtSource" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="dtFrutas" />
+      <Variable x:TypeArguments="x:Int32" Default="0" Name="CantidadFrutosSecos" />
+      <Variable x:TypeArguments="x:Int32" Default="0" Name="IndiceLimon" />
+      <Variable x:TypeArguments="scg:List(x:String)" Default="[New List(Of String)]" Name="LstNombreCo" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dtTest" />
+      <Variable x:TypeArguments="x:String" Default="[String.Empty]" Name="LimonPrimerValor" />
+      <Variable x:TypeArguments="x:String" Default="[String.Empty]" Name="LimonSegundoValor" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="dtSource2" />
+      <Variable x:TypeArguments="scg:List(x:String)" Default="[New List(Of String)]" Name="LstCoincidenciaTablas" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="dtJoin" />
+      <Variable x:TypeArguments="scg:List(sd:DataRow)" Default="[New List(Of DataRow)]" Name="LstJoin" />
+      <Variable x:TypeArguments="x:Decimal" Name="NumeroMayorFrutas" />
+      <Variable x:TypeArguments="x:Decimal" Name="NumeroMenorFrutas" />
+      <Variable x:TypeArguments="x:Decimal" Name="SumatoriaCantidadFrutas" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dtSource]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="503.2,88" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="Sheet1" WorkbookPath="Frutas y Verduras.xlsx" />
+    <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dtSource2]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="503.2,88" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="Sheet2" WorkbookPath="Frutas y Verduras.xlsx" />
+    <Assign DisplayName="Assign - dtFrutas" sap:VirtualizedContainerService.HintSize="503.2,64" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="sd:DataTable">[dtFrutas]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="sd:DataTable" xml:space="preserve">[(From row In dtSource
+Where row("Grupo").ToString.Equals("Frutas")
+Select row).CopyToDataTable]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Assign - dtFrutas" sap:VirtualizedContainerService.HintSize="503.2,64" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign.To>
+        <OutArgument x:TypeArguments="sd:DataTable">[dtFrutas]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="sd:DataTable" xml:space="preserve">[(From row In dtSource
+Where row("Tipo").ToString.Equals("Exóticas") AndAlso
+			Convert.ToDouble(row("Valor").ToString) &gt; 2000
+Select row).CopyToDataTable]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Assign - CantidadFrutosSecos" sap:VirtualizedContainerService.HintSize="503.2,64" sap2010:WorkflowViewState.IdRef="Assign_3">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Int32">[CantidadFrutosSecos]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Int32" xml:space="preserve">[(From row In dtSource
+Where row("Tipo").ToString.Equals("Frutos secos") AndAlso
+			Convert.ToDouble(row("Valor").ToString) &gt; 2000
+Select row).Count]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Assign - IndiceLimon" sap:VirtualizedContainerService.HintSize="503.2,64" sap2010:WorkflowViewState.IdRef="Assign_4">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Int32">[IndiceLimon]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Int32" xml:space="preserve">[dtSource.Rows.IndexOf((From row In dtSource
+Where row("Nombre").ToString.Equals("Limón")
+Select row).FirstOrDefault)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Assign - LstNombreCo" sap:VirtualizedContainerService.HintSize="503.2,64" sap2010:WorkflowViewState.IdRef="Assign_5">
+      <Assign.To>
+        <OutArgument x:TypeArguments="scg:List(x:String)">[LstNombreCo]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="scg:List(x:String)" xml:space="preserve">[(From row In dtSource
+Let Nombre = row("Nombre").ToString
+Let Valor = Convert.ToDouble(row("Valor").ToString)
+Where Nombre.StartsWith("Co") AndAlso Valor &gt; 2000
+Select Nombre).ToList]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="503.2,52.8" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="241.6,192.8" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Sequence sap2010:Annotation.AnnotationText="Bonus AndAlso OrEls" DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="200,100" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Name="VariablePrueba" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign sap:VirtualizedContainerService.HintSize="503.2,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[VariablePrueba]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">Falla</InArgument>
+              </Assign.Value>
+            </Assign>
+            <If Condition="[VariablePrueba = &quot;William&quot; AndAlso dtTest.Rows.Count &gt; 0]" sap:VirtualizedContainerService.HintSize="503.2,221.6" sap2010:WorkflowViewState.IdRef="If_2">
+              <If.Then>
+                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="229.6,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="True" />
+              </If.Then>
+              <If.Else>
+                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="229.6,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="False" />
+              </If.Else>
+            </If>
+            <If Condition="[VariablePrueba = &quot;William&quot; And dtTest.Rows.Count &gt; 0]" sap:VirtualizedContainerService.HintSize="503.2,221.6" sap2010:WorkflowViewState.IdRef="If_1">
+              <If.Then>
+                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="229.6,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="True" />
+              </If.Then>
+              <If.Else>
+                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="229.6,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_5" Text="False" />
+              </If.Else>
+            </If>
+          </Sequence>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <Assign DisplayName="Assign - LimonPrimerValor" sap:VirtualizedContainerService.HintSize="503.2,64" sap2010:WorkflowViewState.IdRef="Assign_8">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[LimonPrimerValor]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String" xml:space="preserve">[(From row In dtSource
+Where row("Nombre").ToString.Equals("Limón")
+Select (row("Valor").ToString)).FirstOrDefault]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Assign - LimonSegundoValor" sap:VirtualizedContainerService.HintSize="503.2,64" sap2010:WorkflowViewState.IdRef="Assign_9">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[LimonSegundoValor]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String" xml:space="preserve">[(From row In dtSource
+Where row("Nombre").ToString.Equals("Limón")
+Select (row("Valor").ToString)).LastOrDefault]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <If Condition="[dtSource.AsEnumerable.Any(Function(row) row(&quot;Grupo&quot;).ToString.Equals(&quot;Frutas&quot;) AndAlso Convert.ToDouble(row(&quot;Valor&quot;).ToString) &gt; 10000)]" sap:VirtualizedContainerService.HintSize="503.2,221.6" sap2010:WorkflowViewState.IdRef="If_3">
+      <If.Then>
+        <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="229.6,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_6" Text="Existe una fruta con valor mayor a $10,000" />
+      </If.Then>
+      <If.Else>
+        <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="229.6,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_7" Text="No existe una fruta con valor mayor a $10,000" />
+      </If.Else>
+    </If>
+    <If Condition="[dtSource.AsEnumerable.Any(Function(row) row(&quot;Grupo&quot;).ToString.Equals(&quot;Hortalizas&quot;) AndAlso Convert.ToDouble(row(&quot;Valor&quot;).ToString) &gt; 10000)]" sap:VirtualizedContainerService.HintSize="503.2,221.6" sap2010:WorkflowViewState.IdRef="If_4">
+      <If.Then>
+        <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="229.6,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_8" Text="Existe una hortaliza con valor mayor a $10,000" />
+      </If.Then>
+      <If.Else>
+        <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="229.6,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_9" Text="No existe una hortaliza con valor mayor a $10,000" />
+      </If.Else>
+    </If>
+    <Assign DisplayName="Assign - LstCoincidenciaTablas" sap:VirtualizedContainerService.HintSize="503.2,64" sap2010:WorkflowViewState.IdRef="Assign_10">
+      <Assign.To>
+        <OutArgument x:TypeArguments="scg:List(x:String)">[LstCoincidenciaTablas]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="scg:List(x:String)" xml:space="preserve">[(From row In dtSource
+Let Nombre = row("Nombre").ToString
+Where dtSource2.AsEnumerable.Any(Function(x) x("Nombre").ToString.Equals(Nombre)) 
+Select Nombre).ToList]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:BuildDataTable DataTable="[dtJoin]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="503.2,60" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Nombre&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Valor&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
+    <Assign DisplayName="Assign - LstCoincidenciaTablas" sap:VirtualizedContainerService.HintSize="503.2,64" sap2010:WorkflowViewState.IdRef="Assign_11">
+      <Assign.To>
+        <OutArgument x:TypeArguments="scg:List(sd:DataRow)">[LstJoin]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="scg:List(sd:DataRow)" xml:space="preserve">[(From rowSource1 As System.Data.DataRow In dtSource
+Join rowSource2 As System.Data.DataRow In dtSource2
+On rowSource1("Nombre") Equals rowSource2("Nombre")
+Where Not rowSource2("Tipo").ToString.Equals("Frutos secos")
+Select dtJoin.LoadDataRow(New Object() {
+	rowSource1("Nombre").ToString,
+	rowSource1("Valor").ToString
+	}, False)).ToList]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Assign - LstCoincidenciaTablas" sap:VirtualizedContainerService.HintSize="503.2,64" sap2010:WorkflowViewState.IdRef="Assign_12">
+      <Assign.To>
+        <OutArgument x:TypeArguments="scg:List(sd:DataRow)">[LstJoin]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="scg:List(sd:DataRow)" xml:space="preserve">[(From rowSource1 As System.Data.DataRow In dtSource
+Join rowSource2 As System.Data.DataRow In dtSource2
+On rowSource1("Nombre") Equals rowSource2("Nombre")
+Where Not rowSource2("Tipo").ToString.Equals("Frutos secos")
+Select dtJoin.LoadDataRow(New Object() {
+	rowSource1("Nombre").ToString,
+	rowSource1("Valor").ToString
+	}, False)).ToList]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Assign - Valor Mayor" sap:VirtualizedContainerService.HintSize="503.2,60" sap2010:WorkflowViewState.IdRef="Assign_13">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Decimal">[NumeroMayorFrutas]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Decimal">[dtSource.AsEnumerable.Where(Function (x) Decimal.TryParse(x.Item("Valor").ToString,Nothing) AndAlso x.Item("Grupo").ToString.Equals("Frutas")).Select(Function (x) CDec(x.Item("Valor").ToString)).Max]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Assign - Valor Menor" sap:VirtualizedContainerService.HintSize="503.2,60" sap2010:WorkflowViewState.IdRef="Assign_14">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Decimal">[NumeroMenorFrutas]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Decimal">[dtSource.AsEnumerable.Where(Function (x) Decimal.TryParse(x.Item("Valor").ToString,Nothing) AndAlso x.Item("Grupo").ToString.Equals("Hortalizas")).Select(Function (x) CDec(x.Item("Valor").ToString)).Min]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Assign - Sumatoria Valor" sap:VirtualizedContainerService.HintSize="503.2,60" sap2010:WorkflowViewState.IdRef="Assign_15">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Decimal">[SumatoriaCantidadFrutas]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Decimal">[dtSource.AsEnumerable.Where(Function (x) Decimal.TryParse(x.Item("Valor").ToString,Nothing) AndAlso x.Item("Tipo").ToString.Equals("Exóticas")).Select(Function (x) CDec(x.Item("Valor").ToString)).Sum]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="503.2,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_1" />
+  </Sequence>
+</Activity>
